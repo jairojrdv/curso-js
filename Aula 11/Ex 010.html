@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        .img-fundo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.81);
+            z-index: -1;
+        }
+
+        body {
+            font: normal 20pt Arial;
+            text-align: center;
+            margin-top: 200px;
+            background: url("/imagens/contran-proibe-radar-oculto-orgaos-devem-comprovar-que-medidor-e-necessario.png")no-repeat;
+            background-size: cover;
+            color: rgb(240, 188, 16)
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="img-fundo">
+    <main>
+        <h1>SISTEMA DE MULTAS</h1>
+        Velocidade do carro: <input type="number" name="txtvel" id="txtvel">
+        <input type="button" value="Fiscalizar" onclick="verificaVelocidade()">
+        <div id="res">Vamos verificar se sua velocidade está no limite de 60 km/h!</div>
+    </main>
+    <script>
+        function verificaVelocidade() {
+            var tnvel = window.document.querySelector('input#txtvel')
+            var res = window.document.querySelector('div#res')
+            var vel = Number(tnvel.value)
+            var multa = vel * 43.90
+            res.innerHTML = `<p>Sua velocidade foi de ${vel} km/h</p>`
+            if (vel > 60) {
+                res.innerHTML += `<p>Você atingiu ${vel} km/h e está multado em R$ 43,90 para cada unidade de Km/h, resultando em R$ ${multa.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} o valor da multa.</p>`
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança e nas normas de trânsito!</p>`
+
+        }
+
+    </script>
+</body>
+
+</html>
