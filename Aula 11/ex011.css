@@ -1,0 +1,23 @@
+.img-fundo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.81);
+            z-index: -1;
+        }
+
+        body {
+            font: normal 20pt Arial;
+            text-align: center;
+            margin-top: 200px;
+            background: url("/imagens/png-clipart-phileas-fogg-package-tour-travel-tauck-round-the-world-ticket-travel-globe-world.png")no-repeat;
+            background-size: cover;
+            color: rgb(240, 188, 16)
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
